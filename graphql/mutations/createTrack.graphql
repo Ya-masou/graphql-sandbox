@@ -1,0 +1,13 @@
+mutation createTrack($content: InputTrackContent!) {
+  createTrack(content: $content) {
+    code
+    success
+    message
+    track {
+      id
+      title
+      numberOfViews
+      description
+    }
+  }
+}

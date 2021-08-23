@@ -1,0 +1,18 @@
+query tracks($search: InputTracksSearchContent) {
+  tracks(search: $search) {
+    ...TrackBasicContent
+    description
+    numberOfViews
+  }
+}
+
+fragment TrackBasicContent on Track {
+  id
+  title
+}
+
+query tracksBasicInfo($search: InputTracksSearchContent) {
+  tracks(search: $search) {
+    ...TrackBasicContent
+  }
+}

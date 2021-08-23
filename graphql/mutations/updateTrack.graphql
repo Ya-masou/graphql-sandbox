@@ -1,0 +1,16 @@
+mutation updateTrack(
+  $updateTrackId: ID!
+  $InputTrackContent: InputTrackContent!
+) {
+  updateTrack(id: $updateTrackId, content: $InputTrackContent) {
+    code
+    success
+    message
+    track {
+      title
+      id
+      description
+      numberOfViews
+    }
+  }
+}
