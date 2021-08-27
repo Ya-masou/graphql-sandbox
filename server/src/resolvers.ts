@@ -10,8 +10,8 @@ type ContextType = {
 
 const resolvers: Resolvers<ContextType> = {
   Query: {
-    tracks(_, { search }, { dataSources }) {
-      return dataSources.trackAPI.getTracks(search);
+    tracks(_, __, { dataSources }) {
+      return dataSources.trackAPI.getTracks();
     },
     track(_, { id }, { dataSources }) {
       return dataSources.trackAPI.getTrack(id);

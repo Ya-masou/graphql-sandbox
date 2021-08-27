@@ -1,5 +1,5 @@
-query tracks($search: InputTracksSearchContent) {
-  tracks(search: $search) {
+query tracks {
+  tracks {
     ...TrackBasicContent
     description
     numberOfViews
@@ -11,8 +11,8 @@ fragment TrackBasicContent on Track {
   title
 }
 
-query tracksBasicInfo($search: InputTracksSearchContent) {
-  tracks(search: $search) {
+query tracksBasicInfo {
+  tracks {
     ...TrackBasicContent
   }
 }

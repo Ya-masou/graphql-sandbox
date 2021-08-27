@@ -1,9 +1,6 @@
 import { RESTDataSource } from "apollo-datasource-rest";
 import { IntrospectionOutputType } from "graphql";
-import {
-  InputTrackContent,
-  InputTracksSearchContent,
-} from "../__generated__/graphql-resolver-types";
+import { InputTrackContent } from "../__generated__/graphql-resolver-types";
 
 class TrackAPI extends RESTDataSource {
   constructor() {
@@ -11,10 +8,8 @@ class TrackAPI extends RESTDataSource {
     this.baseURL = "http://localhost:3001/";
   }
 
-  getTracks(search?: InputTracksSearchContent) {
-    const searchQuery = search ? `?title=${search.title}` : "";
-    const path = `tracks${search ? searchQuery : ""}`;
-    return this.get(path);
+  getTracks() {
+    return this.get("tracks");
   }
 
   getAuthors() {

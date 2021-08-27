@@ -26,10 +26,6 @@ export type InputTrackContent = {
   numberOfViews?: Maybe<Scalars['Int']>;
 };
 
-export type InputTracksSearchContent = {
-  title?: Maybe<Scalars['String']>;
-};
-
 export type MutateTrackResponse = {
   __typename?: 'MutateTrackResponse';
   /** Similar to HTTP status code, represents the status of the mutation */
@@ -68,11 +64,6 @@ export type Query = {
   /** Fetch a specific track, provided a track's ID */
   track: Track;
   authors: Array<Author>;
-};
-
-
-export type QueryTracksArgs = {
-  search?: Maybe<InputTracksSearchContent>;
 };
 
 
@@ -163,7 +154,6 @@ export type ResolversTypes = {
   String: ResolverTypeWrapper<Scalars['String']>;
   InputTrackContent: InputTrackContent;
   Int: ResolverTypeWrapper<Scalars['Int']>;
-  InputTracksSearchContent: InputTracksSearchContent;
   MutateTrackResponse: ResolverTypeWrapper<MutateTrackResponse>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   Mutation: ResolverTypeWrapper<{}>;
@@ -178,7 +168,6 @@ export type ResolversParentTypes = {
   String: Scalars['String'];
   InputTrackContent: InputTrackContent;
   Int: Scalars['Int'];
-  InputTracksSearchContent: InputTracksSearchContent;
   MutateTrackResponse: MutateTrackResponse;
   Boolean: Scalars['Boolean'];
   Mutation: {};
@@ -206,7 +195,7 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  tracks?: Resolver<Array<ResolversTypes['Track']>, ParentType, ContextType, RequireFields<QueryTracksArgs, never>>;
+  tracks?: Resolver<Array<ResolversTypes['Track']>, ParentType, ContextType>;
   track?: Resolver<ResolversTypes['Track'], ParentType, ContextType, RequireFields<QueryTrackArgs, 'id'>>;
   authors?: Resolver<Array<ResolversTypes['Author']>, ParentType, ContextType>;
 };

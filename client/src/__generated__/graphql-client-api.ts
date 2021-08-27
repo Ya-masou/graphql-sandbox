@@ -27,10 +27,6 @@ export type InputTrackContent = {
   numberOfViews?: Maybe<Scalars['Int']>;
 };
 
-export type InputTracksSearchContent = {
-  title?: Maybe<Scalars['String']>;
-};
-
 export type MutateTrackResponse = {
   __typename?: 'MutateTrackResponse';
   /** Similar to HTTP status code, represents the status of the mutation */
@@ -69,11 +65,6 @@ export type Query = {
   /** Fetch a specific track, provided a track's ID */
   track: Track;
   authors: Array<Author>;
-};
-
-
-export type QueryTracksArgs = {
-  search?: Maybe<InputTracksSearchContent>;
 };
 
 
@@ -117,18 +108,14 @@ export type TrackQueryVariables = Exact<{
 
 export type TrackQuery = { __typename?: 'Query', track: { __typename?: 'Track', id: string, title: string, description?: Maybe<string>, numberOfViews?: Maybe<number> } };
 
-export type TracksQueryVariables = Exact<{
-  search?: Maybe<InputTracksSearchContent>;
-}>;
+export type TracksQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type TracksQuery = { __typename?: 'Query', tracks: Array<{ __typename?: 'Track', description?: Maybe<string>, numberOfViews?: Maybe<number>, id: string, title: string }> };
 
 export type TrackBasicContentFragment = { __typename?: 'Track', id: string, title: string };
 
-export type TracksBasicInfoQueryVariables = Exact<{
-  search?: Maybe<InputTracksSearchContent>;
-}>;
+export type TracksBasicInfoQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type TracksBasicInfoQuery = { __typename?: 'Query', tracks: Array<{ __typename?: 'Track', id: string, title: string }> };
@@ -204,8 +191,8 @@ export function useTrackQuery(options: Omit<Urql.UseQueryArgs<TrackQueryVariable
   return Urql.useQuery<TrackQuery>({ query: TrackDocument, ...options });
 };
 export const TracksDocument = gql`
-    query tracks($search: InputTracksSearchContent) {
-  tracks(search: $search) {
+    query tracks {
+  tracks {
     ...TrackBasicContent
     description
     numberOfViews
@@ -217,8 +204,8 @@ export function useTracksQuery(options: Omit<Urql.UseQueryArgs<TracksQueryVariab
   return Urql.useQuery<TracksQuery>({ query: TracksDocument, ...options });
 };
 export const TracksBasicInfoDocument = gql`
-    query tracksBasicInfo($search: InputTracksSearchContent) {
-  tracks(search: $search) {
+    query tracksBasicInfo {
+  tracks {
     ...TrackBasicContent
   }
 }
