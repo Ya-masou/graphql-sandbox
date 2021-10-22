@@ -1,6 +1,6 @@
-# apollo-server-client-template
+# graphql であそぶ
 
-Apollo Server + urql の素振り環境
+Apollo Server + urql の素振りをする
 
 ## 依存パッケージをインストール
 
