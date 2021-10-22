@@ -1,9 +1,9 @@
 {
-  "name": "apollo-server-client-template",
+  "name": "graphql-sandbox",
   "version": "1.0.0",
   "private": true,
   "license": "MIT",
-  "author": "mitani24 <h.mitani@ashita-team.com>",
+  "author": "Ya-masou",
   "workspaces": [
     "api",
     "server",
