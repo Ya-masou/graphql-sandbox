@@ -1,76 +1,51 @@
 # apollo-server-client-template
 
-Apollo Server + Apollo Client の素振り環境
+Apollo Server + urql の素振り環境
 
-## Create Application
-
-```sh
-yarn create next-app -e https://github.com/mitani24/apollo-server-client-template
-```
-
-## インストール
+## 依存パッケージをインストール
 
 ```sh
-# root directory
 yarn install
 ```
 
 ## コード生成
 
-`graphql` ディレクトリの定義を元に以下のコードを生成します。
+```sh
+yarn codegen
+```
+
+`graphql` ディレクトリの定義を元に以下のコードを生成する。
 
 - サーバーの Resolver の型定義
 - クライアントコード
 
-```sh
-# root directory
-yarn codegen
-```
 
 ## REST API の起動
 
-REST API を 3001 ポートで起動します。
+REST API を起動する。
 
 ```sh
-# api direcotry
-yarn start
+yarn workspace api start
 ```
 
-または
-
-```sh
-# api direcotry
-yarn dev
-```
+http://localhost:3001 にアクセスする
 
 ## Apollo Server の起動
 
-Apollo Server を 4000 ポートで起動します。
+Apollo Server を 起動する。
 
 ```sh
-# server direcotry
-yarn start
+yarn workspace server start
 ```
 
-または
-
-```sh
-# server direcotry
-yarn dev
-```
+http://localhost:4000 にアクセスする
 
 ## Client Application の起動
 
-Client Application を 3000 ポートで起動します。
+Client Application を起動する。
 
 ```sh
-# client direcotry
-yarn start
+yarn workspace client dev
 ```
 
-または
-
-```sh
-# client direcotry
-yarn dev
-```
+http://localhost:3000 にアクセスする
